@@ -1,6 +1,8 @@
 {
   "name": "ot-cards",
   "version": "1.0.0",
+  "type": "module",
+  "private": true,
   "dependencies": {
     "resend": "^3.2.0"
   }
