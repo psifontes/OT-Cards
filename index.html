@@ -35,7 +35,6 @@
   .container{max-width:1180px;margin:0 auto;padding:0 24px}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--kos-gold);font-weight:600}
 
-  /* Nav & Logo */
   .nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto}
   .brand{display:flex;align-items:center;gap:0}
@@ -45,7 +44,6 @@
   .nav-cta{font-size:14px;font-weight:500;color:var(--navy);padding:10px 18px;border:1px solid var(--navy);border-radius:999px;transition:.2s}
   .nav-cta:hover{background:var(--navy);color:#fff}
 
-  /* Hero */
   .hero{padding:60px 0 50px;position:relative;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
   .hero h1{font-size:clamp(32px,5vw,52px);margin:16px 0 18px}
@@ -83,7 +81,6 @@
   .block p{color:var(--ink-soft);font-size:14px}
   .quote{margin-top:42px;padding:28px;border-left:3px solid var(--kos-gold);background:#fff;border-radius:0 var(--radius) var(--radius) 0;font-family:'Fraunces',serif;font-size:clamp(17px,1.8vw,20px);color:var(--navy);font-style:italic}
 
-  /* Diagnostic */
   .diag-wrap{background:var(--obsidian);color:#fff;border-radius:24px;padding:clamp(22px,4vw,48px);position:relative;overflow:hidden}
   .diag-wrap::before{content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.15),transparent 70%)}
   .diag-wrap .eyebrow{color:var(--signal-cyan)}
@@ -124,7 +121,6 @@
 
   .microcopy{font-size:12px;color:rgba(255,255,255,.5);margin-top:16px;font-style:italic}
 
-  /* Result */
   .result-head{text-align:center;margin-bottom:32px}
   .result-head .eyebrow{color:var(--kos-gold)}
   .result-head h2{color:#fff;font-size:clamp(24px,3.2vw,32px);margin:8px 0 16px}
@@ -157,7 +153,6 @@
   .next-step .label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--signal-cyan);font-weight:700;margin-bottom:8px}
   .next-step .text{color:#fff;font-size:15px;line-height:1.5;margin-bottom:16px}
 
-  /* Lead capture */
   .lead-box{background:#fff;border-radius:18px;padding:clamp(22px,4vw,36px);margin-top:28px;color:var(--ink)}
   .lead-box h3{font-size:22px;margin-bottom:6px}
   .lead-box p{color:var(--ink-soft);margin-bottom:18px;font-size:14px}
@@ -192,11 +187,10 @@
 </head>
 <body>
 
-<!-- NAV -->
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <img src="/ot-cards-logo.svg" alt="OT Cards™ by KOS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="ot-cards-logo.svg" alt="OT Cards™ by KOS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="brand-logo-fallback">
         <span>OT</span><span>CARDS™</span>
       </div>
@@ -205,7 +199,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -240,7 +233,6 @@
   </div>
 </section>
 
-<!-- CONTEXTO -->
 <section>
   <div class="container">
     <div class="section-head">
@@ -276,7 +268,6 @@
   </div>
 </section>
 
-<!-- DIAGNÓSTICO -->
 <section id="diagnostico" style="padding-top:30px">
   <div class="container">
     <div class="diag-wrap">
@@ -284,7 +275,6 @@
       <h2>Descubre tu OT Digital Score™</h2>
       <p class="lead">Te haremos 10 preguntas concretas sobre cómo funciona hoy tu negocio. Al final recibirás un diagnóstico con tus 3 oportunidades principales y tu siguiente paso recomendado.</p>
 
-      <!-- STEP 0: Datos iniciales -->
       <div class="step active" data-step="0">
         <div class="q-text">Antes de comenzar, cuéntanos un poco sobre ti.</div>
         <div class="field">
@@ -309,10 +299,8 @@
         </div>
       </div>
 
-      <!-- Steps de preguntas (1..10) -->
       <div id="q-container"></div>
 
-      <!-- STEP 11: Resultado -->
       <div class="step" data-step="11" id="step-result">
         <div class="result-head">
           <span class="eyebrow">Evaluación completada</span>
@@ -344,31 +332,42 @@
 
         <div class="dimensions" id="res-dims"></div>
 
+        <!-- FORMULARIO FORMSPREE ACTUALIZADO -->
         <div class="lead-box" id="lead-form">
           <h3>Recibe tu diagnóstico completo</h3>
-          <p>Te enviaremos tu resultado y tu siguiente paso recomendado al canal que elijas.</p>
-          <div class="field">
-            <label for="l-name">Nombre</label>
-            <input type="text" id="l-name">
-          </div>
-          <div class="field">
-            <label for="l-email">Email *</label>
-            <input type="email" id="l-email" placeholder="tu@email.com" required>
-          </div>
-          <div class="field">
-            <label for="l-wa">WhatsApp (opcional)</label>
-            <input type="text" id="l-wa" placeholder="+507 .... ....">
-          </div>
-          <label class="consent">
-            <input type="checkbox" id="l-consent" required>
-            <span>Acepto recibir mi diagnóstico y comunicaciones relacionadas con OT Cards™. Puedo darme de baja cuando quiera.</span>
-          </label>
-          <button class="btn btn-primary" id="btn-send" style="width:100%;justify-content:center">Enviar mi diagnóstico</button>
-          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado. Revisa tu email. También puedes conversar con nosotros por WhatsApp si quieres conocer tu siguiente paso.</div>
-          <div class="error-msg" id="error-msg">No pudimos enviar el diagnóstico. Por favor verifica tus datos e inténtalo de nuevo.</div>
+          <p>Te enviaremos tu resultado y tu siguiente paso recomendado a tu correo.</p>
+          
+          <form action= https://formspree.io/f/xgaevnaa method="POST" id="formspree-form">
+            <div class="field">
+              <label for="f-name-final">Nombre</label>
+              <input type="text" id="f-name-final" name="Nombre" required>
+            </div>
+            <div class="field">
+              <label for="f-email-final">Email *</label>
+              <input type="email" id="f-email-final" name="Email" required>
+            </div>
+            <div class="field">
+              <label for="f-wa-final">WhatsApp (opcional)</label>
+              <input type="text" id="f-wa-final" name="WhatsApp" placeholder="+507 .... ....">
+            </div>
+            
+            <input type="hidden" name="Score" id="hidden-score">
+            <input type="hidden" name="Oportunidad" id="hidden-opportunity">
+            <input type="hidden" name="Negocio" id="hidden-business">
 
+            <label class="consent">
+              <input type="checkbox" required>
+              <span>Acepto recibir mi diagnóstico y comunicaciones de OT Cards™.</span>
+            </label>
+            
+            <button type="submit" class="btn btn-primary" id="btn-send-formspree" style="width:100%;justify-content:center">Enviar mi diagnóstico</button>
+          </form>
+
+          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado a tu correo. Revisa tu bandeja de entrada (o spam).</div>
+          <div class="error-msg" id="error-msg">No pudimos enviar el diagnóstico. Inténtalo de nuevo.</div>
+          
           <div class="final-ctas">
-            <a href="#" class="btn btn-gold" id="cta-whatsapp-primary" style="justify-content:center">Quiero conocer mi siguiente paso</a>
+            <a href="#" class="btn btn-gold" id="cta-whatsapp-primary" style="justify-content:center">Quiero conocer mi siguiente paso por WhatsApp</a>
             <a href="#" class="btn btn-ghost" id="cta-whatsapp-secondary" style="justify-content:center">Hablar por WhatsApp</a>
           </div>
         </div>
@@ -379,7 +378,6 @@
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section id="siguiente">
   <div class="container" style="text-align:center;max-width:720px">
     <span class="eyebrow">Siguiente paso</span>
@@ -399,168 +397,46 @@
 </footer>
 
 <script>
-/* ============ CONFIGURACIÓN ============ */
 const CONFIG = {
   whatsappNumber: '50764952282',
   whatsappBase: 'https://wa.me/50764952282',
-  emailEndpoint: '/api/send-diagnosis',
   dimensions: ['Presencia','Credibilidad','Conversión','Atención','Automatización','Captación','Seguimiento','Dependencia']
 };
 
-/* ============ PREGUNTAS ============ */
 const questions = [
-  {
-    dim:'Presencia',
-    q:'Cuando una persona que todavía no te conoce busca tu negocio o servicio, ¿qué encuentra?',
-    opts:[
-      {k:'A',t:'Prácticamente nada; dependemos de referencias.',s:1},
-      {k:'B',t:'Redes sociales, pero no tenemos un lugar central con información completa.',s:2},
-      {k:'C',t:'Tenemos página web, pero está desactualizada o no genera muchos contactos.',s:3},
-      {k:'D',t:'Tenemos una presencia digital clara donde pueden conocernos y contactarnos fácilmente.',s:4},
-    ]
-  },
-  {
-    dim:'Credibilidad',
-    q:'Si mañana alguien recibe tu contacto y decide buscarte en Internet, ¿qué tan preparado está tu negocio para generar confianza en los primeros 30 segundos?',
-    opts:[
-      {k:'A',t:'No estoy seguro de qué encontraría.',s:1},
-      {k:'B',t:'Encontraría redes sociales, pero la información está dispersa.',s:2},
-      {k:'C',t:'Tenemos información suficiente, aunque podría estar mejor presentada.',s:3},
-      {k:'D',t:'Tenemos una presencia profesional, clara y actualizada.',s:4},
-    ]
-  },
-  {
-    dim:'Conversión',
-    q:'Cuando alguien entra a tu página, perfil o recibe tu información digital, ¿queda claro cuál es el siguiente paso que debe dar?',
-    opts:[
-      {k:'A',t:'No realmente.',s:1},
-      {k:'B',t:'Puede escribirnos, pero no tenemos un proceso claro.',s:2},
-      {k:'C',t:'Tenemos botones o llamadas a la acción.',s:3},
-      {k:'D',t:'La persona puede pasar fácilmente de conocernos a contactarnos o solicitar información.',s:4},
-    ]
-  },
-  {
-    dim:'Atención',
-    q:'¿Qué ocurre cuando un cliente potencial te escribe mientras estás trabajando, manejando, en una reunión o fuera de horario?',
-    opts:[
-      {k:'A',t:'Tiene que esperar hasta que yo pueda responder.',s:1},
-      {k:'B',t:'Alguien del equipo responde manualmente.',s:2},
-      {k:'C',t:'Tenemos algunas respuestas rápidas o mensajes automáticos.',s:3},
-      {k:'D',t:'Tenemos un sistema que puede responder preguntas frecuentes y orientar al prospecto.',s:4},
-    ]
-  },
-  {
-    dim:'Automatización',
-    q:'¿Cuánto tiempo tú o tu equipo dedican a responder las mismas preguntas una y otra vez?',
-    opts:[
-      {k:'A',t:'Mucho. Es parte importante de nuestro día.',s:1},
-      {k:'B',t:'Bastante.',s:2},
-      {k:'C',t:'Algunas preguntas se repiten, pero no es un gran problema.',s:3},
-      {k:'D',t:'Tenemos información organizada y buena parte de estas consultas ya están resueltas.',s:4},
-    ]
-  },
-  {
-    dim:'Captación',
-    q:'Cuando alguien está interesado en tu producto o servicio, ¿cómo capturas sus datos para poder continuar la conversación?',
-    opts:[
-      {k:'A',t:'Principalmente por WhatsApp y memoria.',s:1},
-      {k:'B',t:'WhatsApp, mensajes o redes sociales.',s:2},
-      {k:'C',t:'Tenemos formularios o algún sistema para registrar prospectos.',s:3},
-      {k:'D',t:'Tenemos un proceso estructurado para capturar y organizar leads.',s:4},
-    ]
-  },
-  {
-    dim:'Seguimiento',
-    q:'Después de que una persona pregunta por tu producto o servicio y no compra inmediatamente, ¿qué sucede?',
-    opts:[
-      {k:'A',t:'Normalmente no hacemos seguimiento.',s:1},
-      {k:'B',t:'Tratamos de recordarlo manualmente.',s:2},
-      {k:'C',t:'Tenemos algún proceso de seguimiento.',s:3},
-      {k:'D',t:'Contamos con un sistema organizado o automatizado de seguimiento.',s:4},
-    ]
-  },
-  {
-    dim:'Dependencia',
-    q:'Si tú no respondes durante un día completo, ¿qué tanto depende la atención digital de tu negocio de que tú estés disponible?',
-    opts:[
-      {k:'A',t:'Casi completamente.',s:1},
-      {k:'B',t:'Bastante.',s:2},
-      {k:'C',t:'Algunas cosas pueden continuar sin mí.',s:3},
-      {k:'D',t:'La mayoría de las consultas y procesos básicos pueden continuar.',s:4},
-    ]
-  },
-  {
-    dim:'Automatización',
-    q:'Si pudieras eliminar una tarea repetitiva de tu negocio mañana, ¿cuál tendría mayor impacto?',
-    opts:[
-      {k:'A',t:'Responder preguntas frecuentes.',s:4},
-      {k:'B',t:'Recibir y organizar nuevos prospectos.',s:4},
-      {k:'C',t:'Dar seguimiento a clientes potenciales.',s:4},
-      {k:'D',t:'Enviar información de productos o servicios.',s:3},
-      {k:'E',t:'Agendar reuniones/citas.',s:3},
-      {k:'F',t:'Otra.',s:2,extra:true},
-    ]
-  },
-  {
-    dim:'Prioridad',
-    q:'Si pudieras mejorar una sola cosa de tu negocio durante los próximos 90 días, ¿cuál elegirías?',
-    opts:[
-      {k:'A',t:'Conseguir más personas que me encuentren.',focus:'Presencia'},
-      {k:'B',t:'Generar más confianza y profesionalizar mi presencia.',focus:'Credibilidad'},
-      {k:'C',t:'Responder mejor y más rápido.',focus:'Atención'},
-      {k:'D',t:'Convertir más consultas en clientes.',focus:'Conversión'},
-      {k:'E',t:'Dar mejor seguimiento.',focus:'Seguimiento'},
-      {k:'F',t:'Ahorrar tiempo automatizando tareas.',focus:'Automatización'},
-      {k:'G',t:'No estoy seguro; necesito descubrirlo.',focus:null},
-    ]
-  }
+  {dim:'Presencia',q:'Cuando una persona que todavía no te conoce busca tu negocio o servicio, ¿qué encuentra?',opts:[{k:'A',t:'Prácticamente nada; dependemos de referencias.',s:1},{k:'B',t:'Redes sociales, pero no tenemos un lugar central con información completa.',s:2},{k:'C',t:'Tenemos página web, pero está desactualizada o no genera muchos contactos.',s:3},{k:'D',t:'Tenemos una presencia digital clara donde pueden conocernos y contactarnos fácilmente.',s:4}]},
+  {dim:'Credibilidad',q:'Si mañana alguien recibe tu contacto y decide buscarte en Internet, ¿qué tan preparado está tu negocio para generar confianza en los primeros 30 segundos?',opts:[{k:'A',t:'No estoy seguro de qué encontraría.',s:1},{k:'B',t:'Encontraría redes sociales, pero la información está dispersa.',s:2},{k:'C',t:'Tenemos información suficiente, aunque podría estar mejor presentada.',s:3},{k:'D',t:'Tenemos una presencia profesional, clara y actualizada.',s:4}]},
+  {dim:'Conversión',q:'Cuando alguien entra a tu página, perfil o recibe tu información digital, ¿queda claro cuál es el siguiente paso que debe dar?',opts:[{k:'A',t:'No realmente.',s:1},{k:'B',t:'Puede escribirnos, pero no tenemos un proceso claro.',s:2},{k:'C',t:'Tenemos botones o llamadas a la acción.',s:3},{k:'D',t:'La persona puede pasar fácilmente de conocernos a contactarnos o solicitar información.',s:4}]},
+  {dim:'Atención',q:'¿Qué ocurre cuando un cliente potencial te escribe mientras estás trabajando, manejando, en una reunión o fuera de horario?',opts:[{k:'A',t:'Tiene que esperar hasta que yo pueda responder.',s:1},{k:'B',t:'Alguien del equipo responde manualmente.',s:2},{k:'C',t:'Tenemos algunas respuestas rápidas o mensajes automáticos.',s:3},{k:'D',t:'Tenemos un sistema que puede responder preguntas frecuentes y orientar al prospecto.',s:4}]},
+  {dim:'Automatización',q:'¿Cuánto tiempo tú o tu equipo dedican a responder las mismas preguntas una y otra vez?',opts:[{k:'A',t:'Mucho. Es parte importante de nuestro día.',s:1},{k:'B',t:'Bastante.',s:2},{k:'C',t:'Algunas preguntas se repiten, pero no es un gran problema.',s:3},{k:'D',t:'Tenemos información organizada y buena parte de estas consultas ya están resueltas.',s:4}]},
+  {dim:'Captación',q:'Cuando alguien está interesado en tu producto o servicio, ¿cómo capturas sus datos para poder continuar la conversación?',opts:[{k:'A',t:'Principalmente por WhatsApp y memoria.',s:1},{k:'B',t:'WhatsApp, mensajes o redes sociales.',s:2},{k:'C',t:'Tenemos formularios o algún sistema para registrar prospectos.',s:3},{k:'D',t:'Tenemos un proceso estructurado para capturar y organizar leads.',s:4}]},
+  {dim:'Seguimiento',q:'Después de que una persona pregunta por tu producto o servicio y no compra inmediatamente, ¿qué sucede?',opts:[{k:'A',t:'Normalmente no hacemos seguimiento.',s:1},{k:'B',t:'Tratamos de recordarlo manualmente.',s:2},{k:'C',t:'Tenemos algún proceso de seguimiento.',s:3},{k:'D',t:'Contamos con un sistema organizado o automatizado de seguimiento.',s:4}]},
+  {dim:'Dependencia',q:'Si tú no respondes durante un día completo, ¿qué tanto depende la atención digital de tu negocio de que tú estés disponible?',opts:[{k:'A',t:'Casi completamente.',s:1},{k:'B',t:'Bastante.',s:2},{k:'C',t:'Algunas cosas pueden continuar sin mí.',s:3},{k:'D',t:'La mayoría de las consultas y procesos básicos pueden continuar.',s:4}]},
+  {dim:'Automatización',q:'Si pudieras eliminar una tarea repetitiva de tu negocio mañana, ¿cuál tendría mayor impacto?',opts:[{k:'A',t:'Responder preguntas frecuentes.',s:4},{k:'B',t:'Recibir y organizar nuevos prospectos.',s:4},{k:'C',t:'Dar seguimiento a clientes potenciales.',s:4},{k:'D',t:'Enviar información de productos o servicios.',s:3},{k:'E',t:'Agendar reuniones/citas.',s:3},{k:'F',t:'Otra.',s:2,extra:true}]},
+  {dim:'Prioridad',q:'Si pudieras mejorar una sola cosa de tu negocio durante los próximos 90 días, ¿cuál elegirías?',opts:[{k:'A',t:'Conseguir más personas que me encuentren.',focus:'Presencia'},{k:'B',t:'Generar más confianza y profesionalizar mi presencia.',focus:'Credibilidad'},{k:'C',t:'Responder mejor y más rápido.',focus:'Atención'},{k:'D',t:'Convertir más consultas en clientes.',focus:'Conversión'},{k:'E',t:'Dar mejor seguimiento.',focus:'Seguimiento'},{k:'F',t:'Ahorrar tiempo automatizando tareas.',focus:'Automatización'},{k:'G',t:'No estoy seguro; necesito descubrirlo.',focus:null}]}
 ];
 
-/* ============ ESTADO ============ */
-const state = {
-  current: 0,
-  answers: {},
-  data: {},
-  result: null
-};
-
-/* ============ RENDER PREGUNTAS ============ */
+const state = {current: 0, answers: {}, data: {}, result: null};
 const qContainer = document.getElementById('q-container');
+
 questions.forEach((q,i)=>{
   const idx = i+1;
   const step = document.createElement('div');
   step.className = 'step';
   step.dataset.step = idx;
   step.innerHTML = `
-    <div class="progress">
-      <div class="progress-track"><div class="progress-fill" id="pf-${idx}"></div></div>
-      <div class="progress-num">Pregunta ${idx} de 10</div>
-    </div>
+    <div class="progress"><div class="progress-track"><div class="progress-fill" id="pf-${idx}"></div></div><div class="progress-num">Pregunta ${idx} de 10</div></div>
     <span class="q-dim">${q.dim}</span>
     <div class="q-text">${q.q}</div>
     <div class="options" id="opts-${idx}">
-      ${q.opts.map(o=>`
-        <button class="opt" data-key="${o.k}" data-score="${o.s || 0}" ${o.extra?'data-extra="1"':''} ${o.focus?`data-focus="${o.focus}"`:''}>
-          <span class="opt-letter">${o.k}</span>
-          <span>${o.t}</span>
-        </button>
-      `).join('')}
+      ${q.opts.map(o=>`<button class="opt" data-key="${o.k}" data-score="${o.s || 0}" ${o.extra?'data-extra="1"':''} ${o.focus?`data-focus="${o.focus}"`:''}><span class="opt-letter">${o.k}</span><span>${o.t}</span></button>`).join('')}
     </div>
-    <div id="extra-${idx}" style="display:none;margin-top:12px">
-      <div class="field">
-        <label>¿Cuál?</label>
-        <input type="text" id="extra-input-${idx}" placeholder="Cuéntanos brevemente">
-      </div>
-    </div>
-    <div class="nav-buttons">
-      <button class="btn btn-back" data-action="back">← Atrás</button>
-      <button class="btn btn-next" data-action="next" disabled>Siguiente →</button>
-    </div>
+    <div id="extra-${idx}" style="display:none;margin-top:12px"><div class="field"><label>¿Cuál?</label><input type="text" id="extra-input-${idx}" placeholder="Cuéntanos brevemente"></div></div>
+    <div class="nav-buttons"><button class="btn btn-back" data-action="back">← Atrás</button><button class="btn btn-next" data-action="next" disabled>Siguiente →</button></div>
   `;
   qContainer.appendChild(step);
 });
 
-/* ============ NAVEGACIÓN ============ */
 function showStep(n){
   document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
   const target = document.querySelector(`.step[data-step="${n}"]`);
@@ -574,42 +450,19 @@ function showStep(n){
 function updateProgress(){
   const n = state.current;
   document.querySelectorAll('.progress-fill').forEach((el,i)=>{
-    const qIdx = i+1;
-    el.style.width = (n >= qIdx ? '100%' : '0%');
+    el.style.width = (n >= (i+1) ? '100%' : '0%');
   });
 }
 
-const microMessages = {
-  0:'Esto nos ayuda a identificar dónde está la oportunidad.',
-  1:'Empezamos por cómo te encuentra la gente.',
-  2:'Vamos bien.',
-  3:'Esto define qué tan fácil es dar el siguiente paso.',
-  4:'Aquí detectamos tu capacidad de atención.',
-  5:'Identificamos tareas repetitivas.',
-  6:'Veamos cómo capturas prospectos.',
-  7:'Una de las áreas donde más se pierden oportunidades.',
-  8:'Esto nos dice qué tanto depende todo de ti.',
-  9:'Ya casi terminamos.',
-  10:'Última pregunta: tu prioridad.',
-  11:'Evaluación completada.'
-};
-function updateMicro(){
-  document.getElementById('micro').textContent = microMessages[state.current] || '';
-}
+const microMessages = {0:'Esto nos ayuda a identificar dónde está la oportunidad.',1:'Empezamos por cómo te encuentra la gente.',2:'Vamos bien.',3:'Esto define qué tan fácil es dar el siguiente paso.',4:'Aquí detectamos tu capacidad de atención.',5:'Identificamos tareas repetitivas.',6:'Veamos cómo capturas prospectos.',7:'Una de las áreas donde más se pierden oportunidades.',8:'Esto nos dice qué tanto depende todo de ti.',9:'Ya casi terminamos.',10:'Última pregunta: tu prioridad.',11:'Evaluación completada.'};
+function updateMicro(){ document.getElementById('micro').textContent = microMessages[state.current] || ''; }
 
-/* ============ EVENTOS ============ */
 document.getElementById('btn-start').addEventListener('click',()=>{
   const name = document.getElementById('f-name').value.trim();
   const biz = document.getElementById('f-biz').value.trim();
   const what = document.getElementById('f-what').value.trim();
-  if(!name || !biz || !what){
-    alert('Por favor completa los campos obligatorios.');
-    return;
-  }
-  state.data = {
-    name, biz, what,
-    contact: document.getElementById('f-contact').value.trim()
-  };
+  if(!name || !biz || !what){ alert('Por favor completa los campos obligatorios.'); return; }
+  state.data = {name, biz, what, contact: document.getElementById('f-contact').value.trim()};
   showStep(1);
 });
 
@@ -620,34 +473,25 @@ document.addEventListener('click',(e)=>{
     const idx = parseInt(step.dataset.step);
     step.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
     opt.classList.add('selected');
-    const key = opt.dataset.key;
-    const score = parseInt(opt.dataset.score) || 0;
-    const focus = opt.dataset.focus || null;
-    const extra = opt.dataset.extra === '1';
-    state.answers[idx] = {key,score,focus,extra: extra ? (document.getElementById(`extra-input-${idx}`)?.value || '') : null};
+    state.answers[idx] = {
+      key: opt.dataset.key,
+      score: parseInt(opt.dataset.score) || 0,
+      focus: opt.dataset.focus || null,
+      extra: opt.dataset.extra === '1' ? (document.getElementById(`extra-input-${idx}`)?.value || '') : null
+    };
     step.querySelector('[data-action="next"]').disabled = false;
     const extraBox = document.getElementById(`extra-${idx}`);
-    if(extraBox) extraBox.style.display = extra ? 'block' : 'none';
+    if(extraBox) extraBox.style.display = opt.dataset.extra === '1' ? 'block' : 'none';
     return;
   }
-
   const btn = e.target.closest('[data-action]');
   if(!btn) return;
-  const step = btn.closest('.step');
-  const idx = parseInt(step.dataset.step);
+  const idx = parseInt(btn.closest('.step').dataset.step);
   if(btn.dataset.action === 'next'){
-    if(idx >= 1 && idx <= 10){
-      if(!state.answers[idx]) return;
-      if(idx === 10){
-        renderResult();
-        showStep(11);
-      } else {
-        showStep(idx+1);
-      }
-    }
+    if(!state.answers[idx]) return;
+    if(idx === 10){ renderResult(); showStep(11); } else { showStep(idx+1); }
   } else if(btn.dataset.action === 'back'){
-    if(idx > 1) showStep(idx-1);
-    else if(idx === 1) showStep(0);
+    showStep(idx > 1 ? idx-1 : 0);
   }
 });
 
@@ -658,39 +502,22 @@ document.addEventListener('input',(e)=>{
   }
 });
 
-/* ============ CÁLCULO DE SCORE ============ */
 function computeScores(){
-  const dimScores = {};
-  const dimCounts = {};
-  
-  CONFIG.dimensions.forEach(d => {
-    dimScores[d] = 0;
-    dimCounts[d] = 0;
-  });
-  
+  const dimScores = {}, dimCounts = {};
+  CONFIG.dimensions.forEach(d => { dimScores[d] = 0; dimCounts[d] = 0; });
   for(let i=1; i<=9; i++){
     const ans = state.answers[i];
     if(!ans) continue;
     const q = questions[i-1];
-    if(!dimScores[q.dim]) dimScores[q.dim] = 0;
     dimScores[q.dim] += ans.score;
     dimCounts[q.dim]++;
   }
-  
   const result = {};
   CONFIG.dimensions.forEach(dim => {
-    if(dimCounts[dim] > 0){
-      const avg = dimScores[dim] / dimCounts[dim];
-      result[dim] = Math.round((avg / 4) * 100);
-    } else {
-      result[dim] = 0;
-    }
+    result[dim] = dimCounts[dim] > 0 ? Math.round((dimScores[dim] / dimCounts[dim] / 4) * 100) : 0;
   });
-  
   const values = Object.values(result);
-  const global = Math.round(values.reduce((a,b)=>a+b,0) / values.length);
-  
-  return {dims:result, global};
+  return {dims: result, global: Math.round(values.reduce((a,b)=>a+b,0) / values.length)};
 }
 
 function getBand(score){
@@ -701,104 +528,51 @@ function getBand(score){
 }
 
 function getPriorityLabel(focus){
-  const map = {
-    'Presencia':'Conseguir más personas que me encuentren',
-    'Credibilidad':'Generar más confianza y profesionalizar mi presencia',
-    'Atención':'Responder mejor y más rápido',
-    'Conversión':'Convertir más consultas en clientes',
-    'Seguimiento':'Dar mejor seguimiento',
-    'Automatización':'Ahorrar tiempo automatizando tareas',
-    null:'No estoy seguro; necesito descubrirlo'
-  };
+  const map = {'Presencia':'Conseguir más personas que me encuentren','Credibilidad':'Generar más confianza y profesionalizar mi presencia','Atención':'Responder mejor y más rápido','Conversión':'Convertir más consultas en clientes','Seguimiento':'Dar mejor seguimiento','Automatización':'Ahorrar tiempo automatizando tareas',null:'No estoy seguro; necesito descubrirlo'};
   return map[focus] || focus;
 }
 
-/* ============ RENDER RESULTADO ============ */
-const dimLabels = {
-  'Presencia':'Presencia Digital',
-  'Credibilidad':'Credibilidad Digital',
-  'Conversión':'Conversión',
-  'Atención':'Atención',
-  'Captación':'Captación de Leads',
-  'Seguimiento':'Seguimiento',
-  'Automatización':'Automatización',
-  'Dependencia':'Dependencia del fundador'
-};
+const dimLabels = {'Presencia':'Presencia Digital','Credibilidad':'Credibilidad Digital','Conversión':'Conversión','Atención':'Atención','Captación':'Captación de Leads','Seguimiento':'Seguimiento','Automatización':'Automatización','Dependencia':'Dependencia del fundador'};
+const dimExplainers = {'Presencia':'Tu negocio aún no tiene un lugar central en Internet donde los clientes puedan conocerte y contactarte con claridad.','Credibilidad':'La información que encuentran no termina de transmitir confianza o profesionalismo en los primeros segundos.','Conversión':'Tienes consultas, pero el camino para dar el siguiente paso no está del todo claro.','Atención':'Las consultas llegan en horarios donde no puedes responder de inmediato y no hay un sistema automático.','Captación':'La información de tus prospectos vive en chats y tu memoria, sin un lugar central organizado.','Seguimiento':'Después del primer contacto, el seguimiento depende de acciones manuales y se pierden oportunidades.','Automatización':'Tu equipo dedica tiempo significativo a tareas repetitivas que podrían resolverse digitalmente.','Dependencia':'La operación digital depende fuertemente de ti. Si no estás, la atención se detiene.'};
 
-const dimExplainers = {
-  'Presencia':'Tu negocio aún no tiene un lugar central en Internet donde los clientes puedan conocerte y contactarte con claridad. La mayoría de las oportunidades llegan por referencia, lo que limita tu crecimiento.',
-  'Credibilidad':'Cuando alguien te busca, la información que encuentra no termina de transmitir confianza o profesionalismo en los primeros segundos. Hay una oportunidad clara de mejorar la primera impresión digital.',
-  'Conversión':'Tienes tráfico o consultas, pero el camino para dar el siguiente paso no está del todo claro. Esto hace que muchos interesados se queden a mitad de camino.',
-  'Atención':'Las consultas llegan en horarios donde no puedes responder de inmediato, y no hay un sistema que las atienda automáticamente. Cada minuto de espera es un prospecto que se enfría.',
-  'Captación':'La información de tus prospectos vive en chats, mensajes y tu memoria. No hay un lugar central donde puedas ver quién mostró interés y en qué etapa está.',
-  'Seguimiento':'Tu negocio ya genera interés, pero después del primer contacto el seguimiento depende de acciones manuales. Ahí se pierden muchas oportunidades de conversión.',
-  'Automatización':'Tu equipo dedica tiempo significativo a tareas repetitivas que podrían resolverse con procesos digitales simples. Esto consume energía que podría ir a vender o atender mejor.',
-  'Dependencia':'La operación digital de tu negocio depende fuertemente de ti. Si no estás, la atención se detiene. Esto limita el crecimiento y tu libertad como empresario.'
-};
-
-function getNextStepRecommendation(topDim, priority){
-  const recommendations = {
-    'Presencia':'Construir una presencia digital clara y profesional que concentre tu información y facilite el contacto. Una tarjeta digital OT Cards puede ser tu punto de conexión central.',
-    'Credibilidad':'Profesionalizar tu presencia digital con una página web o landing page que comunique claramente quién eres y por qué deberían elegirte.',
-    'Conversión':'Definir un camino claro desde el primer contacto hasta la acción deseada. Implementar llamadas a la acción claras y procesos de conversión simples.',
-    'Atención':'Implementar un sistema de atención automatizada que responda preguntas frecuentes y oriente a los prospectos incluso cuando no estás disponible.',
-    'Captación':'Centralizar la información de tus prospectos en un sistema organizado. Implementar formularios o herramientas de captura de leads.',
-    'Seguimiento':'Crear un sistema de seguimiento estructurado para no perder oportunidades después del primer contacto. Automatizar el seguimiento puede ser clave.',
-    'Automatización':'Digitalizar tareas repetitivas mediante chatbots, respuestas automáticas o flujos de trabajo automatizados.',
-    'Dependencia':'Implementar sistemas que permitan atender consultas y procesos básicos sin tu intervención directa. Esto te dará libertad y escalabilidad.'
-  };
-  return recommendations[topDim] || 'Analizar tus procesos digitales actuales y priorizar las mejoras según tu prioridad declarada.';
+function getNextStepRecommendation(topDim){
+  const recs = {'Presencia':'Construir una presencia digital clara que concentre tu información. Una tarjeta digital OT Cards puede ser tu punto de conexión central.','Credibilidad':'Profesionalizar tu presencia digital con una página que comunique claramente quién eres.','Conversión':'Definir un camino claro desde el primer contacto hasta la acción deseada con llamadas a la acción claras.','Atención':'Implementar un sistema de atención automatizada que responda preguntas frecuentes 24/7.','Captación':'Centralizar la información de tus prospectos en un sistema organizado con herramientas de captura.','Seguimiento':'Crear un sistema de seguimiento estructurado para no perder oportunidades después del primer contacto.','Automatización':'Digitalizar tareas repetitivas mediante chatbots o flujos de trabajo automatizados.','Dependencia':'Implementar sistemas que permitan atender consultas básicas sin tu intervención directa.'};
+  return recs[topDim] || 'Analizar tus procesos digitales actuales y priorizar las mejoras según tu prioridad declarada.';
 }
 
 function renderResult(){
   const {dims, global} = computeScores();
   state.result = {dims, global};
+  let topDim = null, topScore = 101;
+  for(const k in dims){ if(dims[k] < topScore){ topScore = dims[k]; topDim = k; } }
   
-  let topDim = null;
-  let topScore = 101;
-  for(const k in dims){
-    if(dims[k] < topScore){ topScore = dims[k]; topDim = k; }
-  }
-  
-  const priorityAns = state.answers[10];
-  const priority = priorityAns ? priorityAns.focus : null;
+  const priority = state.answers[10] ? state.answers[10].focus : null;
   
   document.getElementById('res-greeting').textContent = `${state.data.name}, este es tu OT Digital Score™`;
   document.getElementById('res-score').textContent = global;
   document.getElementById('res-band').textContent = getBand(global);
-  
   document.getElementById('res-top-dim').textContent = dimLabels[topDim];
   document.getElementById('res-top-expl').textContent = dimExplainers[topDim];
   
   const ranked = Object.entries(dims).sort((a,b)=>a[1]-b[1]).slice(0,3);
-  const top3 = document.getElementById('res-top3');
-  top3.innerHTML = ranked.map(([k,v],i)=>`
-    <div class="top3-item">
-      <div class="top3-num">0${i+1}</div>
-      <div>
-        <h4>${dimLabels[k]}</h4>
-        <p>${v}/100</p>
-      </div>
-    </div>
+  document.getElementById('res-top3').innerHTML = ranked.map(([k,v],i)=>`
+    <div class="top3-item"><div class="top3-num">0${i+1}</div><div><h4>${dimLabels[k]}</h4><p>${v}/100</p></div></div>
   `).join('');
   
   document.getElementById('res-priority').textContent = getPriorityLabel(priority);
-  document.getElementById('res-nextstep').textContent = getNextStepRecommendation(topDim, priority);
+  document.getElementById('res-nextstep').textContent = getNextStepRecommendation(topDim);
   
-  const dimsEl = document.getElementById('res-dims');
-  dimsEl.innerHTML = `<h4>Tu diagnóstico por dimensión</h4>` +
-    Object.entries(dims).map(([k,v])=>`
-      <div class="dim-row">
-        <div class="name">${dimLabels[k]}</div>
-        <div class="bar"><span style="width:${v}%"></span></div>
-        <div class="val">${v}%</div>
-      </div>
-    `).join('');
+  document.getElementById('res-dims').innerHTML = `<h4>Tu diagnóstico por dimensión</h4>` +
+    Object.entries(dims).map(([k,v])=>`<div class="dim-row"><div class="name">${dimLabels[k]}</div><div class="bar"><span style="width:${v}%"></span></div><div class="val">${v}%</div></div>`).join('');
   
-  document.getElementById('l-name').value = state.data.name;
+  document.getElementById('f-name-final').value = state.data.name;
+  document.getElementById('hidden-score').value = global + "/100";
+  document.getElementById('hidden-opportunity').value = dimLabels[topDim] || "General";
+  document.getElementById('hidden-business').value = state.data.biz;
+  
   if(state.data.contact){
-    if(state.data.contact.includes('@')) document.getElementById('l-email').value = state.data.contact;
-    else document.getElementById('l-wa').value = state.data.contact;
+    if(state.data.contact.includes('@')) document.getElementById('f-email-final').value = state.data.contact;
+    else document.getElementById('f-wa-final').value = state.data.contact;
   }
   
   setupWhatsAppCTAs(global, topDim);
@@ -808,73 +582,47 @@ function setupWhatsAppCTAs(score, topDim){
   const name = encodeURIComponent(state.data.name);
   const dim = encodeURIComponent(dimLabels[topDim]);
   const msg = `Hola, hice el Índice de Preparación Digital OT™ y quiero conversar sobre mi resultado. Mi nombre es ${name} y mi principal oportunidad es ${dim}. Mi OT Digital Score™ fue ${score}/100.`;
-  const waLink = `${CONFIG.whatsappBase}?text=${encodeURIComponent(msg)}`;
-  
+  const waLink = `${CONFIG.whatsappBase}?text=${encodeURIComponent(msg).replace(/%20/g, '+')}`;
   document.getElementById('cta-whatsapp-primary').href = waLink;
   document.getElementById('cta-whatsapp-secondary').href = waLink;
   document.getElementById('cta-final-primary').href = waLink;
   document.getElementById('cta-final-secondary').href = waLink;
 }
 
-/* ============ ENVÍO DE EMAIL ============ */
-document.getElementById('btn-send').addEventListener('click', async ()=>{
-  const email = document.getElementById('l-email').value.trim();
-  const wa = document.getElementById('l-wa').value.trim();
-  const consent = document.getElementById('l-consent').checked;
-  
-  if(!email || !consent){
-    alert('Por favor proporciona un email válido y acepta el consentimiento.');
-    return;
-  }
-  
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!emailRegex.test(email)){
-    alert('Por favor ingresa un email válido.');
-    return;
-  }
-  
-  const btn = document.getElementById('btn-send');
-  const successMsg = document.getElementById('success-msg');
-  const errorMsg = document.getElementById('error-msg');
-  
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-  successMsg.classList.remove('show');
-  errorMsg.classList.remove('show');
-  
-  const payload = {
-    name: document.getElementById('l-name').value.trim() || state.data.name,
-    email,
-    whatsapp: wa,
-    business: state.data.biz,
-    what: state.data.what,
-    answers: state.answers,
-    result: state.result,
-    priority: state.answers[10]?.focus || null,
-    timestamp: new Date().toISOString()
-  };
-  
-  try{
-    const response = await fetch(CONFIG.emailEndpoint, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload)
-    });
+// ENVÍO CON FORMSPREE
+const form = document.getElementById('formspree-form');
+if (form) {
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const btn = document.getElementById('btn-send-formspree');
+    const successMsg = document.getElementById('success-msg');
+    const errorMsg = document.getElementById('error-msg');
     
-    if(!response.ok) throw new Error('Envío fallido');
-    
-    successMsg.classList.add('show');
-    document.getElementById('lead-form').style.opacity = '0.6';
-    document.getElementById('lead-form').style.pointerEvents = 'none';
-  }catch(err){
-    console.error('Error sending email:', err);
-    errorMsg.classList.add('show');
-    btn.disabled = false;
-    btn.textContent = 'Enviar mi diagnóstico';
-  }
-});
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
 
-/* ============ INICIALIZACIÓN ============ */
+    const data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        successMsg.classList.add('show');
+        form.style.display = 'none';
+      } else {
+        errorMsg.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Enviar mi diagnóstico';
+      }
+    }).catch(error => {
+      errorMsg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Enviar mi diagnóstico';
+    });
+  });
+}
+
 updateMicro();
 </script>
 </body>
