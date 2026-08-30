@@ -9,32 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --obsidian:#0a0a0a;
-    --titanium:#c0c0c0;
-    --signal-cyan:#00d4ff;
-    --electric-blue:#0066ff;
-    --kos-gold:#d4af37;
-    --navy:#0B1B3B;
-    --navy-soft:#13264F;
-    --white:#FFFFFF;
-    --bg:#FAFAF7;
-    --ink:#0B1B3B;
-    --ink-soft:#3A4A6B;
-    --muted:#6B7790;
-    --line:#E8E6DF;
-    --shadow:0 10px 40px rgba(11,27,59,.08);
-    --radius:14px;
-  }
+  :root{--obsidian:#0a0a0a;--titanium:#c0c0c0;--signal-cyan:#00d4ff;--electric-blue:#0066ff;--kos-gold:#d4af37;--navy:#0B1B3B;--navy-soft:#13264F;--white:#FFFFFF;--bg:#FAFAF7;--ink:#0B1B3B;--ink-soft:#3A4A6B;--muted:#6B7790;--line:#E8E6DF;--shadow:0 10px 40px rgba(11,27,59,.08);--radius:14px}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
   h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.15;color:var(--navy)}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
-
   .container{max-width:1180px;margin:0 auto;padding:0 24px}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--kos-gold);font-weight:600}
-
   .nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto}
   .brand{display:flex;align-items:center;gap:0}
@@ -43,7 +25,6 @@
   .brand-logo-fallback span:last-child{color:var(--kos-gold);font-size:14px}
   .nav-cta{font-size:14px;font-weight:500;color:var(--navy);padding:10px 18px;border:1px solid var(--navy);border-radius:999px;transition:.2s}
   .nav-cta:hover{background:var(--navy);color:#fff}
-
   .hero{padding:60px 0 50px;position:relative;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
   .hero h1{font-size:clamp(32px,5vw,52px);margin:16px 0 18px}
@@ -51,12 +32,9 @@
   .hero p.lead{font-size:clamp(16px,1.6vw,18px);color:var(--ink-soft);max-width:620px;margin-bottom:28px}
   .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:500;font-size:15px;cursor:pointer;border:none;transition:.2s;font-family:inherit}
-  .btn-primary{background:var(--navy);color:#fff}
-  .btn-primary:hover{background:var(--navy-soft);transform:translateY(-1px)}
-  .btn-gold{background:var(--kos-gold);color:var(--obsidian);font-weight:600}
-  .btn-gold:hover{background:#b8974f}
-  .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}
-  .btn-ghost:hover{border-color:var(--navy)}
+  .btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-soft);transform:translateY(-1px)}
+  .btn-gold{background:var(--kos-gold);color:var(--obsidian);font-weight:600}.btn-gold:hover{background:#b8974f}
+  .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}.btn-ghost:hover{border-color:var(--navy)}
   .micro{font-size:13px;color:var(--muted);margin-top:12px}
   .hero-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
   .score-preview{display:flex;align-items:baseline;gap:8px;margin:8px 0 14px}
@@ -67,12 +45,10 @@
   .dim-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}
   .dim{font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--line)}
   .dim b{color:var(--navy);font-weight:600}
-
   section{padding:70px 0}
   .section-head{max-width:720px;margin-bottom:42px}
   .section-head h2{font-size:clamp(26px,3.4vw,38px);margin:10px 0 12px}
   .section-head p{color:var(--ink-soft);font-size:16px}
-
   .blocks{display:grid;grid-template-columns:1fr;gap:16px}
   .block{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.25s}
   .block:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -80,47 +56,37 @@
   .block h3{font-size:19px;margin:6px 0 8px}
   .block p{color:var(--ink-soft);font-size:14px}
   .quote{margin-top:42px;padding:28px;border-left:3px solid var(--kos-gold);background:#fff;border-radius:0 var(--radius) var(--radius) 0;font-family:'Fraunces',serif;font-size:clamp(17px,1.8vw,20px);color:var(--navy);font-style:italic}
-
   .diag-wrap{background:var(--obsidian);color:#fff;border-radius:24px;padding:clamp(22px,4vw,48px);position:relative;overflow:hidden}
   .diag-wrap::before{content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.15),transparent 70%)}
   .diag-wrap .eyebrow{color:var(--signal-cyan)}
   .diag-wrap h2{color:#fff;font-size:clamp(24px,3.2vw,34px);margin:8px 0 8px}
   .diag-wrap p.lead{color:rgba(255,255,255,.7);max-width:640px;margin-bottom:24px;font-size:15px}
-
-  .step{display:none;animation:fade .35s ease}
-  .step.active{display:block}
+  .step{display:none;animation:fade .35s ease}.step.active{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
   .progress{display:flex;align-items:center;gap:12px;margin:16px 0 24px}
   .progress-track{flex:1;height:3px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
   .progress-fill{height:100%;background:var(--signal-cyan);width:0;transition:width .4s}
   .progress-num{font-size:12px;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums}
-
   .q-dim{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--signal-cyan);background:rgba(0,212,255,.12);padding:5px 10px;border-radius:99px;margin-bottom:14px}
   .q-text{font-family:'Fraunces',serif;font-size:clamp(20px,2.4vw,26px);color:#fff;margin-bottom:24px;line-height:1.3}
-
   .options{display:grid;gap:10px}
   .opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px 18px;color:#fff;text-align:left;cursor:pointer;transition:.2s;font-size:14px;font-family:inherit;display:flex;gap:12px;align-items:flex-start}
   .opt:hover{background:rgba(255,255,255,.08);border-color:var(--signal-cyan)}
   .opt.selected{background:rgba(0,212,255,.15);border-color:var(--signal-cyan)}
   .opt-letter{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-weight:600;font-size:12px;color:var(--signal-cyan)}
   .opt.selected .opt-letter{background:var(--signal-cyan);color:var(--obsidian)}
-
   .field{display:grid;gap:6px;margin-bottom:16px}
   .field label{font-size:12px;color:rgba(255,255,255,.65);font-weight:500}
   .field input,.field textarea,.field select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:14px;transition:.2s}
   .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--signal-cyan);background:rgba(255,255,255,.08)}
   .field textarea{resize:vertical;min-height:80px}
-
   .nav-buttons{display:flex;justify-content:space-between;gap:10px;margin-top:28px;flex-wrap:wrap}
   .btn-back{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2);font-size:13px;padding:12px 18px}
   .btn-back:hover{color:#fff;border-color:#fff}
   .btn-next{background:var(--signal-cyan);color:var(--obsidian);font-weight:600;font-size:13px;padding:12px 22px}
   .btn-next:hover{background:#00b8e6}
   .btn-next:disabled{opacity:.4;cursor:not-allowed}
-
   .microcopy{font-size:12px;color:rgba(255,255,255,.5);margin-top:16px;font-style:italic}
-
   .result-head{text-align:center;margin-bottom:32px}
   .result-head .eyebrow{color:var(--kos-gold)}
   .result-head h2{color:#fff;font-size:clamp(24px,3.2vw,32px);margin:8px 0 16px}
@@ -137,22 +103,18 @@
   .top3-num{font-family:'Fraunces',serif;font-size:18px;color:var(--kos-gold);font-weight:600;min-width:28px}
   .top3-item h4{color:#fff;font-size:14px;margin-bottom:3px;font-family:'Inter',sans-serif;font-weight:600}
   .top3-item p{color:rgba(255,255,255,.65);font-size:13px;margin:0}
-
   .priority-box{background:rgba(0,102,255,.1);border:1px solid rgba(0,102,255,.25);border-radius:12px;padding:18px;margin:20px 0}
   .priority-box .label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--electric-blue);font-weight:700;margin-bottom:6px}
   .priority-box .value{color:#fff;font-size:15px;font-weight:500}
-
   .dimensions{margin-top:24px}
   .dimensions h4{color:#fff;font-size:16px;margin-bottom:12px;font-family:'Inter',sans-serif;font-weight:600}
   .dim-row{display:grid;grid-template-columns:120px 1fr 36px;gap:10px;align-items:center;margin-bottom:8px;font-size:13px}
   .dim-row .name{color:rgba(255,255,255,.75)}
   .dim-row .bar{background:rgba(255,255,255,.1);margin:0}
   .dim-row .val{color:var(--signal-cyan);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
-
   .next-step{background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(0,102,255,.08));border:1px solid rgba(0,212,255,.2);border-radius:14px;padding:22px;margin:24px 0;text-align:center}
   .next-step .label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--signal-cyan);font-weight:700;margin-bottom:8px}
   .next-step .text{color:#fff;font-size:15px;line-height:1.5;margin-bottom:16px}
-
   .lead-box{background:#fff;border-radius:18px;padding:clamp(22px,4vw,36px);margin-top:28px;color:var(--ink)}
   .lead-box h3{font-size:22px;margin-bottom:6px}
   .lead-box p{color:var(--ink-soft);margin-bottom:18px;font-size:14px}
@@ -166,23 +128,10 @@
   .success-msg.show{display:block}
   .error-msg{background:rgba(220,0,0,.08);border:1px solid rgba(220,0,0,.2);border-radius:10px;padding:16px;text-align:center;color:#8b0000;font-size:14px;display:none;margin-top:16px}
   .error-msg.show{display:block}
-
   footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
-
-  @media (min-width:760px){
-    .hero-grid{grid-template-columns:1.1fr .9fr;gap:50px}
-    .blocks{grid-template-columns:1fr 1fr}
-    .top3{grid-template-columns:repeat(3,1fr)}
-    .final-ctas{grid-template-columns:1fr 1fr}
-    .dim-row{grid-template-columns:160px 1fr 44px}
-  }
-  @media (min-width:1000px){
-    .blocks{grid-template-columns:repeat(4,1fr)}
-  }
-  @media (max-width:480px){
-    .brand img{height:42px}
-    .nav-inner{padding:14px 18px}
-  }
+  @media (min-width:760px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:50px}.blocks{grid-template-columns:1fr 1fr}.top3{grid-template-columns:repeat(3,1fr)}.final-ctas{grid-template-columns:1fr 1fr}.dim-row{grid-template-columns:160px 1fr 44px}}
+  @media (min-width:1000px){.blocks{grid-template-columns:repeat(4,1fr)}}
+  @media (max-width:480px){.brand img{height:42px}.nav-inner{padding:14px 18px}}
 </style>
 </head>
 <body>
@@ -190,10 +139,8 @@
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <img src="ot-cards-logo.svg" alt="OT Cards™ by KOS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="brand-logo-fallback">
-        <span>OT</span><span>CARDS™</span>
-      </div>
+      <img src="/ot-cards-logo.svg" alt="OT Cards™ by KOS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="brand-logo-fallback"><span>OT</span><span>CARDS™</span></div>
     </div>
     <a href="#diagnostico" class="nav-cta">Iniciar diagnóstico</a>
   </div>
@@ -213,10 +160,7 @@
       </div>
       <div class="hero-card">
         <span class="eyebrow">Ejemplo de resultado</span>
-        <div class="score-preview">
-          <span class="num">63</span>
-          <span class="of">/ 100</span>
-        </div>
+        <div class="score-preview"><span class="num">63</span><span class="of">/ 100</span></div>
         <div class="bar"><span style="width:63%"></span></div>
         <div style="font-size:12px;color:var(--muted);margin-bottom:12px">OT Digital Score™</div>
         <div style="font-family:'Fraunces',serif;font-size:20px;color:var(--navy);margin-bottom:16px">En desarrollo</div>
@@ -241,30 +185,12 @@
       <p>La mayoría de los negocios no tienen un problema de tecnología. Tienen un problema de <b>sistema</b>: no saben exactamente dónde se escapan los clientes en el camino digital.</p>
     </div>
     <div class="blocks">
-      <div class="block">
-        <div class="block-num">01</div>
-        <h3>Visibilidad</h3>
-        <p>¿Cuando alguien escucha hablar de tu negocio puede encontrarte fácilmente?</p>
-      </div>
-      <div class="block">
-        <div class="block-num">02</div>
-        <h3>Confianza</h3>
-        <p>¿Tu presencia digital comunica claramente quién eres y por qué deberían elegirte?</p>
-      </div>
-      <div class="block">
-        <div class="block-num">03</div>
-        <h3>Atención</h3>
-        <p>¿Puedes responder a tus clientes aunque estés ocupado o fuera de horario?</p>
-      </div>
-      <div class="block">
-        <div class="block-num">04</div>
-        <h3>Seguimiento</h3>
-        <p>¿Sabes qué ocurre después de que alguien pregunta por tus productos o servicios?</p>
-      </div>
+      <div class="block"><div class="block-num">01</div><h3>Visibilidad</h3><p>¿Cuando alguien escucha hablar de tu negocio puede encontrarte fácilmente?</p></div>
+      <div class="block"><div class="block-num">02</div><h3>Confianza</h3><p>¿Tu presencia digital comunica claramente quién eres y por qué deberían elegirte?</p></div>
+      <div class="block"><div class="block-num">03</div><h3>Atención</h3><p>¿Puedes responder a tus clientes aunque estés ocupado o fuera de horario?</p></div>
+      <div class="block"><div class="block-num">04</div><h3>Seguimiento</h3><p>¿Sabes qué ocurre después de que alguien pregunta por tus productos o servicios?</p></div>
     </div>
-    <div class="quote">
-      El problema no siempre es la falta de tecnología. Muchas veces es no saber dónde realmente hace falta.
-    </div>
+    <div class="quote">El problema no siempre es la falta de tecnología. Muchas veces es no saber dónde realmente hace falta.</div>
   </div>
 </section>
 
@@ -277,26 +203,11 @@
 
       <div class="step active" data-step="0">
         <div class="q-text">Antes de comenzar, cuéntanos un poco sobre ti.</div>
-        <div class="field">
-          <label for="f-name">Nombre *</label>
-          <input type="text" id="f-name" placeholder="Tu nombre" required>
-        </div>
-        <div class="field">
-          <label for="f-biz">Nombre del negocio *</label>
-          <input type="text" id="f-biz" placeholder="Ej. Clínica Dental Norte" required>
-        </div>
-        <div class="field">
-          <label for="f-what">¿A qué se dedica tu negocio? *</label>
-          <textarea id="f-what" placeholder="Ej. Ofrecemos servicios de ortodoncia y odontología general..." required></textarea>
-        </div>
-        <div class="field">
-          <label for="f-contact">WhatsApp o email (opcional)</label>
-          <input type="text" id="f-contact" placeholder="Para enviarte tu resultado">
-        </div>
-        <div class="nav-buttons">
-          <span></span>
-          <button class="btn btn-next" id="btn-start">Comenzar evaluación →</button>
-        </div>
+        <div class="field"><label for="f-name">Nombre *</label><input type="text" id="f-name" placeholder="Tu nombre" required></div>
+        <div class="field"><label for="f-biz">Nombre del negocio *</label><input type="text" id="f-biz" placeholder="Ej. Clínica Dental Norte" required></div>
+        <div class="field"><label for="f-what">¿A qué se dedica tu negocio? *</label><textarea id="f-what" placeholder="Ej. Ofrecemos servicios de ortodoncia..." required></textarea></div>
+        <div class="field"><label for="f-contact">WhatsApp o email (opcional)</label><input type="text" id="f-contact" placeholder="Para enviarte tu resultado"></div>
+        <div class="nav-buttons"><span></span><button class="btn btn-next" id="btn-start">Comenzar evaluación →</button></div>
       </div>
 
       <div id="q-container"></div>
@@ -305,10 +216,7 @@
         <div class="result-head">
           <span class="eyebrow">Evaluación completada</span>
           <h2 id="res-greeting">Tu OT Digital Score™</h2>
-          <div class="big-score">
-            <span class="n" id="res-score">—</span>
-            <span class="m">/ 100</span>
-          </div>
+          <div class="big-score"><span class="n" id="res-score">—</span><span class="m">/ 100</span></div>
           <div class="score-band" id="res-band">—</div>
         </div>
 
@@ -332,38 +240,37 @@
 
         <div class="dimensions" id="res-dims"></div>
 
-        <!-- FORMULARIO FORMSPREE ACTUALIZADO -->
+        <!-- FORMULARIO ACTUALIZADO PARA RESEND -->
         <div class="lead-box" id="lead-form">
           <h3>Recibe tu diagnóstico completo</h3>
           <p>Te enviaremos tu resultado y tu siguiente paso recomendado a tu correo.</p>
           
-          <form action= https://formspree.io/f/xgaevnaa method="POST" id="formspree-form">
+          <form id="diagnosis-form">
             <div class="field">
               <label for="f-name-final">Nombre</label>
-              <input type="text" id="f-name-final" name="Nombre" required>
+              <input type="text" id="f-name-final" name="name" required>
             </div>
             <div class="field">
               <label for="f-email-final">Email *</label>
-              <input type="email" id="f-email-final" name="Email" required>
+              <input type="email" id="f-email-final" name="email" required>
             </div>
             <div class="field">
               <label for="f-wa-final">WhatsApp (opcional)</label>
-              <input type="text" id="f-wa-final" name="WhatsApp" placeholder="+507 .... ....">
+              <input type="text" id="f-wa-final" name="whatsapp" placeholder="+507 .... ....">
             </div>
             
-            <input type="hidden" name="Score" id="hidden-score">
-            <input type="hidden" name="Oportunidad" id="hidden-opportunity">
-            <input type="hidden" name="Negocio" id="hidden-business">
+            <input type="hidden" name="business" id="hidden-business">
+            <input type="hidden" name="what" id="hidden-what">
 
             <label class="consent">
-              <input type="checkbox" required>
+              <input type="checkbox" id="l-consent" required>
               <span>Acepto recibir mi diagnóstico y comunicaciones de OT Cards™.</span>
             </label>
             
-            <button type="submit" class="btn btn-primary" id="btn-send-formspree" style="width:100%;justify-content:center">Enviar mi diagnóstico</button>
+            <button type="submit" class="btn btn-primary" id="btn-send" style="width:100%;justify-content:center">Enviar mi diagnóstico</button>
           </form>
 
-          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado a tu correo. Revisa tu bandeja de entrada (o spam).</div>
+          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado. Revisa tu bandeja de entrada.</div>
           <div class="error-msg" id="error-msg">No pudimos enviar el diagnóstico. Inténtalo de nuevo.</div>
           
           <div class="final-ctas">
@@ -391,9 +298,7 @@
 </section>
 
 <footer>
-  <div class="container">
-    © 2026 OT Cards™ — Tu Identidad Conectada.
-  </div>
+  <div class="container">© 2026 OT Cards™ — Tu Identidad Conectada.</div>
 </footer>
 
 <script>
@@ -422,8 +327,7 @@ const qContainer = document.getElementById('q-container');
 questions.forEach((q,i)=>{
   const idx = i+1;
   const step = document.createElement('div');
-  step.className = 'step';
-  step.dataset.step = idx;
+  step.className = 'step'; step.dataset.step = idx;
   step.innerHTML = `
     <div class="progress"><div class="progress-track"><div class="progress-fill" id="pf-${idx}"></div></div><div class="progress-num">Pregunta ${idx} de 10</div></div>
     <span class="q-dim">${q.dim}</span>
@@ -442,16 +346,13 @@ function showStep(n){
   const target = document.querySelector(`.step[data-step="${n}"]`);
   if(target) target.classList.add('active');
   state.current = n;
-  updateProgress();
-  updateMicro();
+  updateProgress(); updateMicro();
   window.scrollTo({top:document.getElementById('diagnostico').offsetTop - 20, behavior:'smooth'});
 }
 
 function updateProgress(){
   const n = state.current;
-  document.querySelectorAll('.progress-fill').forEach((el,i)=>{
-    el.style.width = (n >= (i+1) ? '100%' : '0%');
-  });
+  document.querySelectorAll('.progress-fill').forEach((el,i)=>{ el.style.width = (n >= (i+1) ? '100%' : '0%'); });
 }
 
 const microMessages = {0:'Esto nos ayuda a identificar dónde está la oportunidad.',1:'Empezamos por cómo te encuentra la gente.',2:'Vamos bien.',3:'Esto define qué tan fácil es dar el siguiente paso.',4:'Aquí detectamos tu capacidad de atención.',5:'Identificamos tareas repetitivas.',6:'Veamos cómo capturas prospectos.',7:'Una de las áreas donde más se pierden oportunidades.',8:'Esto nos dice qué tanto depende todo de ti.',9:'Ya casi terminamos.',10:'Última pregunta: tu prioridad.',11:'Evaluación completada.'};
@@ -542,7 +443,8 @@ function getNextStepRecommendation(topDim){
 
 function renderResult(){
   const {dims, global} = computeScores();
-  state.result = {dims, global};
+  const band = getBand(global);
+  state.result = {dims, global, band};
   let topDim = null, topScore = 101;
   for(const k in dims){ if(dims[k] < topScore){ topScore = dims[k]; topDim = k; } }
   
@@ -550,11 +452,14 @@ function renderResult(){
   
   document.getElementById('res-greeting').textContent = `${state.data.name}, este es tu OT Digital Score™`;
   document.getElementById('res-score').textContent = global;
-  document.getElementById('res-band').textContent = getBand(global);
+  document.getElementById('res-band').textContent = band;
   document.getElementById('res-top-dim').textContent = dimLabels[topDim];
   document.getElementById('res-top-expl').textContent = dimExplainers[topDim];
   
   const ranked = Object.entries(dims).sort((a,b)=>a[1]-b[1]).slice(0,3);
+  const top3Data = ranked.map(([k,v]) => ({dim: dimLabels[k], score: v}));
+  state.result.top3 = top3Data;
+  
   document.getElementById('res-top3').innerHTML = ranked.map(([k,v],i)=>`
     <div class="top3-item"><div class="top3-num">0${i+1}</div><div><h4>${dimLabels[k]}</h4><p>${v}/100</p></div></div>
   `).join('');
@@ -566,9 +471,8 @@ function renderResult(){
     Object.entries(dims).map(([k,v])=>`<div class="dim-row"><div class="name">${dimLabels[k]}</div><div class="bar"><span style="width:${v}%"></span></div><div class="val">${v}%</div></div>`).join('');
   
   document.getElementById('f-name-final').value = state.data.name;
-  document.getElementById('hidden-score').value = global + "/100";
-  document.getElementById('hidden-opportunity').value = dimLabels[topDim] || "General";
   document.getElementById('hidden-business').value = state.data.biz;
+  document.getElementById('hidden-what').value = state.data.what;
   
   if(state.data.contact){
     if(state.data.contact.includes('@')) document.getElementById('f-email-final').value = state.data.contact;
@@ -589,39 +493,53 @@ function setupWhatsAppCTAs(score, topDim){
   document.getElementById('cta-final-secondary').href = waLink;
 }
 
-// ENVÍO CON FORMSPREE
-const form = document.getElementById('formspree-form');
-if (form) {
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-    const btn = document.getElementById('btn-send-formspree');
-    const successMsg = document.getElementById('success-msg');
-    const errorMsg = document.getElementById('error-msg');
-    
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
+// ==========================================
+// ENVÍO SEGURO AL BACKEND DE VERCEL (RESEND)
+// ==========================================
+document.getElementById('diagnosis-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn-send');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
 
-    const data = new FormData(event.target);
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        successMsg.classList.add('show');
-        form.style.display = 'none';
-      } else {
-        errorMsg.classList.add('show');
-        btn.disabled = false;
-        btn.textContent = 'Enviar mi diagnóstico';
-      }
-    }).catch(error => {
-      errorMsg.classList.add('show');
-      btn.disabled = false;
-      btn.textContent = 'Enviar mi diagnóstico';
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  successMsg.classList.remove('show');
+  errorMsg.classList.remove('show');
+
+  const payload = {
+    name: document.getElementById('f-name-final').value || state.data.name,
+    email: document.getElementById('f-email-final').value,
+    whatsapp: document.getElementById('f-wa-final').value,
+    business: state.data.biz,
+    what: state.data.what,
+    answers: state.answers,
+    result: state.result,
+    priority: state.answers[10]?.focus || null,
+    nextStep: document.getElementById('res-nextstep').textContent,
+    timestamp: new Date().toISOString()
+  };
+
+  try {
+    const response = await fetch('/api/send-diagnosis', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
-  });
-}
+
+    if (response.ok) {
+      successMsg.classList.add('show');
+      document.getElementById('diagnosis-form').style.display = 'none';
+    } else {
+      throw new Error('Error del servidor');
+    }
+  } catch (err) {
+    console.error('Error de envío:', err);
+    errorMsg.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = 'Enviar mi diagnóstico';
+  }
+});
 
 updateMicro();
 </script>
