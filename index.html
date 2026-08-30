@@ -240,7 +240,7 @@
 
         <div class="dimensions" id="res-dims"></div>
 
-        <!-- FORMULARIO ACTUALIZADO PARA RESEND -->
+        <!-- FORMULARIO LIMPIO, SIN ACTION, SIN FORMSPREE -->
         <div class="lead-box" id="lead-form">
           <h3>Recibe tu diagnóstico completo</h3>
           <p>Te enviaremos tu resultado y tu siguiente paso recomendado a tu correo.</p>
@@ -248,20 +248,17 @@
           <form id="diagnosis-form">
             <div class="field">
               <label for="f-name-final">Nombre</label>
-              <input type="text" id="f-name-final" name="name" required>
+              <input type="text" id="f-name-final" required>
             </div>
             <div class="field">
               <label for="f-email-final">Email *</label>
-              <input type="email" id="f-email-final" name="email" required>
+              <input type="email" id="f-email-final" required>
             </div>
             <div class="field">
               <label for="f-wa-final">WhatsApp (opcional)</label>
-              <input type="text" id="f-wa-final" name="whatsapp" placeholder="+507 .... ....">
+              <input type="text" id="f-wa-final" placeholder="+507 .... ....">
             </div>
             
-            <input type="hidden" name="business" id="hidden-business">
-            <input type="hidden" name="what" id="hidden-what">
-
             <label class="consent">
               <input type="checkbox" id="l-consent" required>
               <span>Acepto recibir mi diagnóstico y comunicaciones de OT Cards™.</span>
@@ -270,7 +267,7 @@
             <button type="submit" class="btn btn-primary" id="btn-send" style="width:100%;justify-content:center">Enviar mi diagnóstico</button>
           </form>
 
-          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado. Revisa tu bandeja de entrada.</div>
+          <div class="success-msg" id="success-msg">✓ Tu diagnóstico fue enviado. Revisa tu email.</div>
           <div class="error-msg" id="error-msg">No pudimos enviar el diagnóstico. Inténtalo de nuevo.</div>
           
           <div class="final-ctas">
@@ -457,8 +454,7 @@ function renderResult(){
   document.getElementById('res-top-expl').textContent = dimExplainers[topDim];
   
   const ranked = Object.entries(dims).sort((a,b)=>a[1]-b[1]).slice(0,3);
-  const top3Data = ranked.map(([k,v]) => ({dim: dimLabels[k], score: v}));
-  state.result.top3 = top3Data;
+  state.result.top3 = ranked.map(([k,v]) => ({dim: dimLabels[k], score: v}));
   
   document.getElementById('res-top3').innerHTML = ranked.map(([k,v],i)=>`
     <div class="top3-item"><div class="top3-num">0${i+1}</div><div><h4>${dimLabels[k]}</h4><p>${v}/100</p></div></div>
@@ -470,10 +466,8 @@ function renderResult(){
   document.getElementById('res-dims').innerHTML = `<h4>Tu diagnóstico por dimensión</h4>` +
     Object.entries(dims).map(([k,v])=>`<div class="dim-row"><div class="name">${dimLabels[k]}</div><div class="bar"><span style="width:${v}%"></span></div><div class="val">${v}%</div></div>`).join('');
   
+  // Pre-llenar campos del formulario final
   document.getElementById('f-name-final').value = state.data.name;
-  document.getElementById('hidden-business').value = state.data.biz;
-  document.getElementById('hidden-what').value = state.data.what;
-  
   if(state.data.contact){
     if(state.data.contact.includes('@')) document.getElementById('f-email-final').value = state.data.contact;
     else document.getElementById('f-wa-final').value = state.data.contact;
@@ -493,53 +487,101 @@ function setupWhatsAppCTAs(score, topDim){
   document.getElementById('cta-final-secondary').href = waLink;
 }
 
-// ==========================================
-// ENVÍO SEGURO AL BACKEND DE VERCEL (RESEND)
-// ==========================================
-document.getElementById('diagnosis-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById('btn-send');
-  const successMsg = document.getElementById('success-msg');
-  const errorMsg = document.getElementById('error-msg');
+// ========================================================================
+// ENVÍO DEL FORMULARIO: ÚNICA IMPLEMENTACIÓN, SIN ALERT, SIN LOCALSTORAGE
+// ========================================================================
+const form = document.getElementById('diagnosis-form');
+const btnSend = document.getElementById('btn-send');
 
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-  successMsg.classList.remove('show');
-  errorMsg.classList.remove('show');
+if (form && btnSend) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Evitar recarga de página
+    
+    console.log('OT Cards: iniciando envío');
 
-  const payload = {
-    name: document.getElementById('f-name-final').value || state.data.name,
-    email: document.getElementById('f-email-final').value,
-    whatsapp: document.getElementById('f-wa-final').value,
-    business: state.data.biz,
-    what: state.data.what,
-    answers: state.answers,
-    result: state.result,
-    priority: state.answers[10]?.focus || null,
-    nextStep: document.getElementById('res-nextstep').textContent,
-    timestamp: new Date().toISOString()
-  };
+    // 1. Validación estricta
+    const name = (document.getElementById('f-name-final').value || state.data.name).trim();
+    const email = document.getElementById('f-email-final').value.trim();
+    const wa = document.getElementById('f-wa-final').value.trim();
+    const consent = document.getElementById('l-consent').checked;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  try {
-    const response = await fetch('/api/send-diagnosis', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+    const errorMsg = document.getElementById('error-msg');
+    const successMsg = document.getElementById('success-msg');
+    errorMsg.classList.remove('show');
+    successMsg.classList.remove('show');
 
-    if (response.ok) {
-      successMsg.classList.add('show');
-      document.getElementById('diagnosis-form').style.display = 'none';
-    } else {
-      throw new Error('Error del servidor');
+    if (!name) {
+      errorMsg.textContent = 'Por favor, ingresa tu nombre.';
+      errorMsg.classList.add('show');
+      return;
     }
-  } catch (err) {
-    console.error('Error de envío:', err);
-    errorMsg.classList.add('show');
-    btn.disabled = false;
-    btn.textContent = 'Enviar mi diagnóstico';
-  }
-});
+    if (!email) {
+      errorMsg.textContent = 'Por favor, ingresa un email válido.';
+      errorMsg.classList.add('show');
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      errorMsg.textContent = 'El formato del email no es válido.';
+      errorMsg.classList.add('show');
+      return;
+    }
+    if (!consent) {
+      errorMsg.textContent = 'Debes aceptar el consentimiento para recibir tu diagnóstico.';
+      errorMsg.classList.add('show');
+      return;
+    }
+
+    console.log('OT Cards: enviando a /api/send-diagnosis');
+
+    // 2. Construir Payload exacto solicitado
+    const payload = {
+      data: state.data,
+      answers: state.answers,
+      lead: {
+        name: name,
+        wa: wa,
+        email: email
+      },
+      result: state.result,
+      priority: state.answers[10]?.focus || null,
+      date: new Date().toISOString()
+    };
+
+    // 3. UI de carga
+    btnSend.disabled = true;
+    btnSend.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch('/api/send-diagnosis', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        successMsg.textContent = '✓ Tu diagnóstico fue enviado. Revisa tu email.';
+        successMsg.classList.add('show');
+        form.style.display = 'none'; // Ocultar formulario tras éxito confirmado
+      } else {
+        const errData = await response.json().catch(() => ({}));
+        console.error('Error del backend:', response.status, errData);
+        errorMsg.textContent = 'No pudimos enviar el diagnóstico. Inténtalo de nuevo.';
+        errorMsg.classList.add('show');
+        btnSend.disabled = false;
+        btnSend.textContent = 'Enviar mi diagnóstico';
+      }
+    } catch (error) {
+      console.error('Error de red o fetch:', error);
+      errorMsg.textContent = 'No pudimos enviar el diagnóstico. Inténtalo de nuevo.';
+      errorMsg.classList.add('show');
+      btnSend.disabled = false;
+      btnSend.textContent = 'Enviar mi diagnóstico';
+    }
+  });
+}
 
 updateMicro();
 </script>
